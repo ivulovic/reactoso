@@ -15,6 +15,9 @@ const baseDevelopmentConfiguration = {
         sockIntegration: 'whm',
       },
     }),
+    new webpack.ProvidePlugin({
+      React: 'react'
+    })
   ],
   devServer: {
     open: true,

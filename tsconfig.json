@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
       "allowSyntheticDefaultImports": true,
+      "allowUmdGlobalAccess": true,
       "target": "es5",
       "downlevelIteration": true,
       "importHelpers": true,
@@ -29,7 +30,11 @@
       "suppressImplicitAnyIndexErrors": true,
       "declaration": true,
       "esModuleInterop": true,
-      "declarationDir": "dist/@types"
+      "declarationDir": "dist/@types",
+      "baseUrl": "./src",
+      "paths": {
+        "@reactoso-ui": ["packages/ui"],
+      }
     },
     "exclude": [
       "*/node_modules/*"

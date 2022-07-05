@@ -8,7 +8,7 @@ module.exports = {
 
   resolve: {
     // That's what allow us to leave off the file extension when importing (import { something } from './file')
-    extensions: [".ts", ".tsx", ".js"]
+    extensions: [".ts", ".tsx", ".js"],
   },
   output: {
     publicPath: '/',
