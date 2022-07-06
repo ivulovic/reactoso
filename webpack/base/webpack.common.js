@@ -16,6 +16,7 @@ module.exports = {
     path: path.resolve(process.cwd(), 'build'),
   },
   optimization: {
+    runtimeChunk: 'single',
     splitChunks: {
       chunks: 'all',
     },
