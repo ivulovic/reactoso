@@ -8,6 +8,10 @@ const baseDevelopmentConfiguration = {
   mode: 'development',
   devtool: 'cheap-source-map',
   entry: ['webpack-hot-middleware/client?reload=true', './src/index.tsx'],
+  output: {
+    filename: '[name].js',
+    chunkFilename: '[name].chunk.js',
+  },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new ReactRefreshPlugin({
@@ -22,7 +26,13 @@ const baseDevelopmentConfiguration = {
   devServer: {
     open: true,
     hot: true,
-    port: 3000
+    port: 3000,
+    historyApiFallback: true
+    // proxy: {
+    //   '/api': {
+    //     target: 'http://localhost:5000',
+    //   }
+    // }
   }
 };
 

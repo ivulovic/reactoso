@@ -4,6 +4,7 @@ const config = {
   resolve: {
     alias: {
       "@reactoso-ui": path.resolve("src/packages/ui"),
+      "pages": path.resolve("src/pages"),
     }
   },
   optimization: {

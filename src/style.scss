@@ -1,8 +1,22 @@
-$black: black;
+*{
+    padding: 0;
+    margin: 0;
+}
 :root{
-    --white: white;
+    --main-bg: "snow";
+    --text: #222;
+    --primary: #0a84bc;
 }
 body{
-    background-color: $black;
-    color: var(--white);
+    background-color: var(--main-bg);
+    color: var(--text);
+}
+a.active{
+    color: var(--primary);
+}
+main#main{
+    padding: 0 1rem;
+    nav{
+        margin-bottom: 1rem;
+    }
 }

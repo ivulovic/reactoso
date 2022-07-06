@@ -1,6 +1,7 @@
-const path = require('path')
-const CleanWebpackPlugin = require('clean-webpack-plugin').CleanWebpackPlugin;
+const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CircularDependencyPlugin = require('circular-dependency-plugin')
 
 module.exports = {
   // to automatically finds the local tsconfig
@@ -12,14 +13,24 @@ module.exports = {
   },
   output: {
     publicPath: '/',
-    libraryTarget: 'umd',
-    filename: '[name].[contenthash].js',
     path: path.resolve(process.cwd(), 'build'),
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
   plugins: [
-    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: path.relative(process.cwd(), 'public/index.html')
+      inject: true,
+      template: 'public/index.html',
+    }),
+    new webpack.ProvidePlugin({
+      React: 'react'
+    }),
+    new CircularDependencyPlugin({
+      exclude: /a\.js|node_modules/,
+      failOnError: true,
     })
   ],
   module: {
